@@ -133,6 +133,9 @@ class RFID(object):
         if 0 <= gain <= 7:
             self.antenna_gain = gain
 
+    def read_antenna_gain(self):
+        return self.dev_read(0x26) >> 4
+
     def card_write(self, command, data):
         back_data = []
         back_length = 0
